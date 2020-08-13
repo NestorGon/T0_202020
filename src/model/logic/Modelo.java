@@ -7,7 +7,8 @@ import model.data_structures.IArregloDinamico;
  * Definicion del modelo del mundo
  *
  */
-public class Modelo {
+public class Modelo 
+{
 	/**
 	 * Atributos del modelo del mundo
 	 */
@@ -67,6 +68,5 @@ public class Modelo {
 	{
 		return datos.eliminar(dato);
 	}
-
-
+	
 }

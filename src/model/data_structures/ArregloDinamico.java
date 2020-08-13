@@ -7,7 +7,8 @@ package model.data_structures;
  * @author Fernando De la Rosa
  *
  */
-public class ArregloDinamico implements IArregloDinamico {
+public class ArregloDinamico implements IArregloDinamico 
+{
 		/**
 		 * Capacidad maxima del arreglo
 		 */
@@ -49,29 +50,76 @@ public class ArregloDinamico implements IArregloDinamico {
                tamanoAct++;
        }
 
-		public int darCapacidad() {
+		/**
+		 * Retornar el numero de elementos maximo en el arreglo
+		 * @return tamanoMax
+		 */
+		public int darCapacidad()
+		{
 			return tamanoMax;
 		}
 
-		public int darTamano() {
+		/**
+		 * Retornar el numero de elementos presentes en el arreglo
+		 * @return tamanoAct
+		 */
+		public int darTamano()
+		{
 			return tamanoAct;
 		}
 
-		public String darElemento(int i) {
-			// TODO implementar
+		/**
+		 * Retornar el elemento en la posicion i
+		 * @param i posicion de consulta
+		 * @return elemento de consulta. null si no hay elemento en posicion.
+		 */
+		public String darElemento(int i) 
+		{
+			return elementos[i];
+		}
+
+		/**
+		 * Buscar un dato en el arreglo.
+		 * @param dato Objeto de busqueda en el arreglo
+		 * @return elemento encontrado en el arreglo (si existe). null si no se encontro el dato.
+		 */
+		public String buscar(String dato)
+		{
+			for (String actual: elementos)
+			{
+				if ( actual != null && actual.compareTo( dato ) == 0 )
+					return actual;
+			}
 			return null;
 		}
 
-		public String buscar(String dato) {
-			// TODO implementar
-			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
-		}
-
-		public String eliminar(String dato) {
-			// TODO implementar
-			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
+		/**
+		 * Eliminar un dato del arreglo.
+		 * Los datos restantes deben quedar "compactos" desde la posicion 0.
+		 * @param dato Objeto de eliminacion en el arreglo
+		 * @return dato eliminado
+		 */
+		public String eliminar(String dato) 
+		{
+			String eliminado = null;
+			for (int i = 0; i < tamanoAct; i++)
+			{
+				if ( elementos[i].compareTo( dato ) == 0 )
+				{
+					eliminado = elementos[i];
+					elementos[i] = null;
+					tamanoAct--;
+				}
+				if( eliminado != null)
+				{
+					try {
+						elementos[i] = elementos[ i + 1 ];
+					} catch (NullPointerException e) {
+						elementos[i] = null;
+					}
+				}
+			}
+			return eliminado;
 		}
 
 }
