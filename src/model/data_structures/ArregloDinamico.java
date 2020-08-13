@@ -34,6 +34,11 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
                tamanoAct = 0;
         }
         
+		/**
+		 * Agregar un dato de forma compacta (en la primera casilla disponible) 
+		 * Caso Especial: Si el arreglo esta lleno debe aumentarse su capacidad, agregar el nuevo dato y deben quedar multiples casillas disponibles para futuros nuevos datos.
+		 * @param dato nuevo elemento
+		 */
 		public void agregar( T dato )
         {
                if ( tamanoAct == tamanoMax )
@@ -44,28 +49,46 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
                     for ( int i = 0; i < tamanoAct; i++)
                     {
                      	 elementos[i] = copia[i];
-                    } 
+                    }
             	    System.out.println("Arreglo lleno: " + tamanoAct + " - Arreglo duplicado: " + tamanoMax);
                }	
                elementos[tamanoAct] = dato;
                tamanoAct++;
-       }
+        }
 
+		/**
+		 * Retornar el numero de elementos maximo en el arreglo
+		 * @return
+		 */
 		public int darCapacidad() 
 		{
 			return tamanoMax;
 		}
 
+		/**
+		 * Retornar el numero de elementos presentes en el arreglo
+		 * @return
+		 */
 		public int darTamano() 
 		{
 			return tamanoAct;
 		}
 
+		/**
+		 * Retornar el elemento en la posicion i
+		 * @param i posicion de consulta
+		 * @return elemento de consulta. null si no hay elemento en posicion.
+		 */
 		public T darElemento(int i)
 		{
 			return elementos[i];
 		}
 
+		/**
+		 * Buscar un dato en el arreglo.
+		 * @param dato Objeto de busqueda en el arreglo
+		 * @return elemento encontrado en el arreglo (si existe). null si no se encontro el dato.
+		 */
 		public T buscar(T dato) 
 		{
 			for (T actual: elementos)
@@ -76,6 +99,12 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 			return null;
 		}
 
+		/**
+		 * Eliminar un dato del arreglo.
+		 * Los datos restantes deben quedar "compactos" desde la posicion 0.
+		 * @param dato Objeto de eliminacion en el arreglo
+		 * @return dato eliminado
+		 */
 		public T eliminar(T dato) 
 		{
 			T eliminado = null;
