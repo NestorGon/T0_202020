@@ -31,6 +31,11 @@ public class Modelo
 		datos = new ArregloDinamico(capacidad);
 	}
 	
+	public IArregloDinamico darArreglo()
+	{
+		return datos;
+	}
+	
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
 	 * @return numero de elementos presentes en el modelo
