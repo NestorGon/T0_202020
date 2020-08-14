@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.logic.Modelo;
