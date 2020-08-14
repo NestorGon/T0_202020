@@ -58,7 +58,7 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 
 		/**
 		 * Retornar el numero de elementos maximo en el arreglo
-		 * @return
+		 * @return tamanoMax
 		 */
 		public int darCapacidad() 
 		{
@@ -67,7 +67,7 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 
 		/**
 		 * Retornar el numero de elementos presentes en el arreglo
-		 * @return
+		 * @return tamanoAct
 		 */
 		public int darTamano() 
 		{

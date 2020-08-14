@@ -1,5 +1,6 @@
 package view;
 
+import model.data_structures.IArregloDinamico;
 import model.logic.Modelo;
 
 public class View 
@@ -12,6 +13,9 @@ public class View
 	    	
 	    }
 	    
+	    /**
+	     * Imprime el menú del programa en consola
+	     */
 		public void printMenu()
 		{
 			System.out.println("1. Crear Arreglo Dinamico de enteros");
@@ -23,13 +27,26 @@ public class View
 			System.out.println("Dar el numero de opcion a resolver, luego oprimir tecla Return: (e.g., 1):");
 		}
 
-		public void printMessage(String mensaje) {
-
+		/**
+		 * Imprime en consola el mensaje ingresado por parámetro
+		 * @param mensaje - el mensaje que se va a imprimir
+		 */
+		public void printMessage(String mensaje) 
+		{
 			System.out.println(mensaje);
 		}		
 		
+		/**
+		 * Imprime el arreglo del modelo
+		 * @param modelo - el modelo con la información a imprimir
+		 */
 		public void printModelo(Modelo modelo)
 		{
-			// TODO implementar
+			IArregloDinamico<Integer> arreglo = modelo.darArreglo();
+			int tamano = modelo.darTamano();
+			for (int i = 0; i < tamano; i++)
+			{
+				System.out.println( "   " + arreglo.darElemento( i ) );
+			}
 		}
 }

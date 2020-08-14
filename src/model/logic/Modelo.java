@@ -31,6 +31,15 @@ public class Modelo
 	}
 	
 	/**
+	 * Retorna el arreglo del modelo
+	 * @return datos
+	 */
+	public IArregloDinamico<Integer> darArreglo()
+	{
+		return datos;
+	}
+	
+	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
 	 * @return numero de elementos presentes en el modelo
 	 */
