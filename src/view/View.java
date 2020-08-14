@@ -13,6 +13,9 @@ public class View
 	    	
 	    }
 	    
+	    /**
+	     * Imprime el menú del programa en consola
+	     */
 		public void printMenu()
 		{
 			System.out.println("1. Crear Arreglo Dinamico de Strings");
@@ -24,12 +27,20 @@ public class View
 			System.out.println("Dar el numero de opcion a resolver, luego oprimir tecla Return: (e.g., 1):");
 		}
 
+		/**
+		 * Imprime en consola el mensaje ingresado por parámetro
+		 * @param mensaje - el mensaje que se va a imprimir
+		 */
 		public void printMessage(String mensaje) 
 		{
 
 			System.out.println(mensaje);
 		}		
 		
+		/**
+		 * Imprime el arreglo del modelo
+		 * @param modelo - el modelo con la información a imprimir
+		 */
 		public void printModelo(Modelo modelo)
 		{
 			IArregloDinamico arreglo = modelo.darArreglo();
