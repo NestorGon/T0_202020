@@ -110,12 +110,6 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 			T eliminado = null;
 			for (int i = 0; i < tamanoAct; i++)
 			{
-				if ( elementos[i].compareTo( dato ) == 0 )
-				{
-					eliminado = elementos[i];
-					elementos[i] = null;
-					tamanoAct--;
-				}
 				if( eliminado != null)
 				{
 					try {
@@ -124,6 +118,13 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 						elementos[i] = null;
 					}
 				}
+				else if ( elementos[i].compareTo( dato ) == 0 )
+				{
+					eliminado = elementos[i];
+					elementos[i] = null;
+					tamanoAct--;
+				}
+
 			}
 			return eliminado;
 		}

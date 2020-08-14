@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.logic.Modelo;
@@ -33,27 +34,24 @@ public class Controller
 
 		while( !fin ){
 			view.printMenu();
-
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
 					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new Modelo(capacidad); 
-				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
+					int capacidad = lector.nextInt();
+					modelo = new Modelo(capacidad); 
+					view.printMessage("Arreglo Dinamico creado");
+					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+				    break;
 				case 2:
-					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
+					view.printMessage("--------- \nDar número entero a ingresar: ");
 					dato = lector.nextInt();
 					modelo.agregar(dato);
 					view.printMessage("Dato agregado");
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");
 					break;
-
 				case 3:
-					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
+					view.printMessage("--------- \nDar número entero a buscar: ");
 					dato = lector.nextInt();
 					respuesta = modelo.buscar(dato);
 					if ( respuesta != null)
@@ -64,11 +62,10 @@ public class Controller
 					{
 						view.printMessage("Dato NO encontrado");
 					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");
 					break;
-
 				case 4:
-					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
+					view.printMessage("--------- \nDar número entero a eliminar: ");
 					dato = lector.nextInt();
 					respuesta = modelo.eliminar(dato);
 					if ( respuesta != null)
@@ -79,21 +76,18 @@ public class Controller
 					{
 						view.printMessage("Dato NO eliminado");							
 					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");
 					break;
-
 				case 5: 
 					view.printMessage("--------- \nContenido del Arreglo: ");
 					view.printModelo(modelo);
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;	
-					
 				case 6: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;
 					break;	
-
 				default: 
 					view.printMessage("--------- \n Opcion Invalida !! \n---------");
 					break;
