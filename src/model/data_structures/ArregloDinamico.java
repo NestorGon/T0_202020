@@ -118,7 +118,7 @@ public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinami
 						elementos[i] = null;
 					}
 				}
-				else if ( elementos[i].compareTo( dato ) == 0 )
+				else if ( elementos[i].compareTo( dato ) == 0 && eliminado == null)
 				{
 					eliminado = elementos[i];
 					elementos[i] = null;
