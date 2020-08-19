@@ -104,7 +104,7 @@ public class ArregloDinamico implements IArregloDinamico
 			String eliminado = null;
 			for (int i = 0; i < tamanoAct; i++)
 			{
-				if ( elementos[i].compareTo( dato ) == 0 )
+				if ( elementos[i].compareTo( dato ) == 0 && eliminado == null)
 				{
 					eliminado = elementos[i];
 					elementos[i] = null;
